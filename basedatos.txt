@@ -1,0 +1,21 @@
+create database crud;
+use crud;
+create table mascota(
+    id int auto_increment primary key,
+    nombre varchar(100),
+    raza varchar(100),
+    vacunas varchar(100),
+    estilista varchar(100),
+    tipo_de_servicio varchar(100),
+    fecha_atencion date,
+    celular varchar(12)
+);
+create table promociones(
+    id int NOT NULL AUTO_INCREMENT,
+    promocion VARCHAR(200) DEFAULT NULL,
+    duracion VARCHAR(200) DEFAULT NULL,
+    id_mascota INT NOT NULL,
+    PRIMARY KEY (id),
+    KEY fk_promociones_1_idx (id_mascota),
+    CONSTRAINT fk_promociones_1 FOREIGN KEY (id_mascota) REFERENCES mascota (id)
+);
